@@ -41,4 +41,5 @@ if time_bound == "yes":
 else:
     reminder += "."
 
-print(reminder)
+print(f"Reminder: Your task '{task}' is of {priority.upper()} priority"
+      + (" that requires immediate attention today!" if time_bound == "yes" else "."))
