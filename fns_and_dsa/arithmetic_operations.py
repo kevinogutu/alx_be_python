@@ -1,18 +1,19 @@
+# arithmetic_operations.py
+
 def perform_operation(num1: float, num2: float, operation: str):
     """
     Performs an arithmetic operation on num1 and num2.
 
     Parameters:
-        num1 (float): The first operand.
-        num2 (float): The second operand.
+        num1 (float): First operand.
+        num2 (float): Second operand.
         operation (str): One of 'add', 'subtract', 'multiply', or 'divide'.
 
     Returns:
-        float: The result of the operation.
-        str: A special error message if division by zero is attempted.
+        float: Result of the arithmetic operation if successful.
+        str: A specific error message if operation is unknown or division by zero.
     """
 
-    # Normalize operation input
     op = operation.lower()
 
     if op == 'add':
@@ -23,10 +24,19 @@ def perform_operation(num1: float, num2: float, operation: str):
         return num1 * num2
     elif op == 'divide':
         if num2 == 0:
-            # Return a recognizable value or message for division by zero
             return "ERROR_DIVISION_BY_ZERO"
         else:
             return num1 / num2
     else:
-        # If operation is invalid
         return "ERROR_UNKNOWN_OPERATION"
+
+# You may include some simple tests below, or use a separate test suite.
+
+if __name__ == '__main__':
+    # Example usages
+    print(perform_operation(5.0, 3.0, 'add'))        # 8.0
+    print(perform_operation(5.0, 3.0, 'subtract'))   # 2.0
+    print(perform_operation(5.0, 3.0, 'multiply'))   # 15.0
+    print(perform_operation(5.0, 0.0, 'divide'))     # ERROR_DIVISION_BY_ZERO
+    print(perform_operation(5.0, 3.0, 'divide'))     # 1.6666666666666667
+    print(perform_operation(5.0, 3.0, 'modulus'))    # ERROR_UNKNOWN_OPERATION
